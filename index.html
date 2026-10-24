@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VJM Cocopeat | Natural • Sustainable • Trusted</title>
+    <meta name="description" content="VJM Cocopeat - Premium quality compressed cocopeat blocks for home gardening, seed starting, potting mix, and healthy plant growth.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ============================================================
+           🔧 EASY CONFIG — Change your UPI & contact details here
+           ============================================================ */
+        :root {
+            --primary-green: #2d7a3a;
+            --dark-green: #1a5c28;
+            --light-green: #4caf50;
+            --accent-green: #81c784;
+            --brown: #8B4513;
+            --dark-brown: #5c2e0a;
+            --cream: #fdf6e3;
+            --warm-white: #fefef8;
+            --gold: #c8a850;
+            --text-dark: #2c2c2c;
+            --text-muted: #666;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family:'Poppins',sans-serif; color:var(--text-dark); background:var(--warm-white); overflow-x:hidden; }
+
+        /* TOP BAR */
+        .top-bar { background:linear-gradient(135deg,var(--dark-green),var(--primary-green)); color:#fff; padding:8px 0; font-size:.85rem; }
+        .top-bar .container { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+        .top-bar a { color:#fff; text-decoration:none; transition:opacity .3s; }
+        .top-bar a:hover { opacity:.8; }
+        .top-bar-left,.top-bar-right { display:flex; align-items:center; gap:20px; }
+        .top-bar i { margin-right:6px; }
+
+        /* NAVBAR */
+        .navbar { background:#fff; box-shadow:0 2px 20px rgba(0,0,0,.08); position:sticky; top:0; z-index:1000; transition:all .3s; }
+        .navbar.scrolled { box-shadow:0 4px 30px rgba(0,0,0,.15); }
+        .navbar .container { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; }
+        .navbar-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+        .navbar-brand img { height:55px; width:auto; }
+        .brand-text h1 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:800; background:linear-gradient(135deg,var(--primary-green),var(--brown)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1.1; }
+        .brand-text span { font-size:.7rem; color:var(--text-muted); letter-spacing:3px; text-transform:uppercase; }
+        .nav-links { display:flex; list-style:none; gap:5px; }
+        .nav-links a { text-decoration:none; color:var(--text-dark); font-weight:500; padding:10px 20px; border-radius:8px; transition:all .3s; font-size:.95rem; }
+        .nav-links a:hover,.nav-links a.active { background:linear-gradient(135deg,var(--primary-green),var(--dark-green)); color:#fff; }
+        .mobile-toggle { display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--primary-green); }
+
+        /* CONTAINER */
+        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+        /* HERO */
+        .hero { position:relative; min-height:85vh; display:flex; align-items:center; background:linear-gradient(135deg,#f0f9f0 0%,#e8f5e9 30%,var(--cream) 100%); overflow:hidden; }
+        .hero::before { content:''; position:absolute; top:-50%; right:-20%; width:800px; height:800px; background:radial-gradient(circle,rgba(76,175,80,.08) 0%,transparent 70%); border-radius:50%; }
+        .hero .container { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:2; }
+        .hero-content h2 { font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:800; line-height:1.15; margin-bottom:20px; color:var(--dark-green); }
+        .hero-content h2 span { background:linear-gradient(135deg,var(--brown),var(--dark-brown)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .hero-content p { font-size:1.15rem; color:var(--text-muted); line-height:1.7; margin-bottom:30px; }
+        .hero-badges { display:flex; gap:15px; margin-bottom:35px; flex-wrap:wrap; }
+        .hero-badge { display:flex; align-items:center; gap:8px; background:#fff; padding:10px 18px; border-radius:50px; box-shadow:var(--shadow); font-size:.85rem; font-weight:500; }
+        .hero-badge i { color:var(--primary-green); }
+        .hero-buttons { display:flex; gap:15px; flex-wrap:wrap; }
+        .hero-image img { width:100%; max-width:550px; border-radius:20px; box-shadow:var(--shadow-lg); }
+
+        /* BUTTONS */
+        .btn { display:inline-flex; align-items:center; gap:8px; padding:14px 32px; border-radius:50px; font-weight:600; font-size:1rem; text-decoration:none; transition:all .3s; cursor:pointer; border:none; font-family:'Poppins',sans-serif; }
+        .btn-primary { background:linear-gradient(135deg,var(--primary-green),var(--dark-green)); color:#fff; box-shadow:0 4px 15px rgba(45,122,58,.3); }
+        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 25px rgba(45,122,58,.4); }
+        .btn-whatsapp { background:#25D366; color:#fff; box-shadow:0 4px 15px rgba(37,211,102,.3); }
+        .btn-whatsapp:hover { transform:translateY(-2px); box-shadow:0 6px 25px rgba(37,211,102,.4); }
+        .btn-outline { background:transparent; color:var(--primary-green); border:2px solid var(--primary-green); }
+        .btn-outline:hover { background:var(--primary-green); color:#fff; transform:translateY(-2px); }
+        .btn-sm { padding:10px 22px; font-size:.85rem; }
+        .btn-white { background:#fff; color:var(--dark-green); font-weight:600; }
+        .btn-white:hover { transform:translateY(-2px); box-shadow:0 6px 25px rgba(0,0,0,.2); }
+
+        /* SECTIONS */
+        .section { padding:80px 0; }
+        .section-alt { background:linear-gradient(180deg,#f8fdf8,#f0f9f0); }
+        .section-title { text-align:center; margin-bottom:60px; }
+        .section-title h2 { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:700; color:var(--dark-green); margin-bottom:15px; }
+        .section-title p { color:var(--text-muted); font-size:1.1rem; max-width:600px; margin:0 auto; }
+        .section-title .divider { width:80px; height:4px; background:linear-gradient(to right,var(--primary-green),var(--brown)); margin:15px auto 0; border-radius:2px; }
+
+        /* STATS BAR */
+        .stats-bar { background:linear-gradient(135deg,var(--dark-green),var(--primary-green)); padding:40px 0; }
+        .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; text-align:center; }
+        .stat-item h3 { font-family:'Playfair Display',serif; font-size:2.5rem; color:#fff; font-weight:700; }
+        .stat-item p { color:rgba(255,255,255,.8); font-size:.9rem; margin-top:5px; }
+
+        /* FEATURES */
+        .features-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+        .feature-card { background:#fff; border-radius:16px; padding:35px 25px; text-align:center; box-shadow:var(--shadow); transition:all .4s; border:1px solid rgba(45,122,58,.05); }
+        .feature-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+        .feature-icon { width:70px; height:70px; background:linear-gradient(135deg,rgba(45,122,58,.1),rgba(76,175,80,.15)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.8rem; color:var(--primary-green); transition:all .3s; }
+        .feature-card:hover .feature-icon { background:linear-gradient(135deg,var(--primary-green),var(--light-green)); color:#fff; transform:scale(1.1); }
+        .feature-card h3 { font-size:1.1rem; font-weight:600; margin-bottom:10px; color:var(--dark-green); }
+        .feature-card p { font-size:.9rem; color:var(--text-muted); line-height:1.6; }
+
+        /* PRODUCTS — Dynamic */
+        #products-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:30px; }
+        .product-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:var(--shadow); transition:all .4s; border:1px solid rgba(0,0,0,.04); }
+        .product-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+        .product-image { position:relative; height:250px; overflow:hidden; background:linear-gradient(135deg,#f0f9f0,#e8f5e9); }
+        .product-image img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+        .product-card:hover .product-image img { transform:scale(1.05); }
+        .product-badge { position:absolute; top:15px; left:15px; background:linear-gradient(135deg,var(--primary-green),var(--dark-green)); color:#fff; padding:6px 16px; border-radius:50px; font-size:.8rem; font-weight:600; }
+        .product-info { padding:25px; }
+        .product-info h3 { font-size:1.2rem; font-weight:700; color:var(--dark-green); margin-bottom:10px; }
+        .product-info p { color:var(--text-muted); font-size:.9rem; line-height:1.6; margin-bottom:15px; }
+        .product-specs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+        .product-spec { background:#f0f9f0; color:var(--primary-green); padding:5px 12px; border-radius:20px; font-size:.78rem; font-weight:500; }
+        .product-price-row { display:flex; align-items:center; justify-content:space-between; padding-top:15px; border-top:1px solid #eee; }
+        .price { font-size:1.3rem; font-weight:700; color:var(--primary-green); }
+        .price small { font-size:.8rem; font-weight:400; color:var(--text-muted); }
+
+        /* PAYMENT / UPI */
+        .payment-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start; }
+        .payment-methods { display:grid; gap:20px; }
+        .payment-method { background:#fff; border-radius:16px; padding:25px 30px; display:flex; align-items:center; gap:20px; box-shadow:var(--shadow); transition:all .3s; border:1px solid rgba(0,0,0,.04); }
+        .payment-method:hover { transform:translateX(5px); box-shadow:var(--shadow-lg); border-left:4px solid var(--primary-green); }
+        .payment-method-icon { width:60px; height:60px; background:linear-gradient(135deg,rgba(45,122,58,.1),rgba(76,175,80,.15)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:var(--primary-green); flex-shrink:0; }
+        .payment-method h3 { font-size:1.05rem; font-weight:600; margin-bottom:4px; color:var(--dark-green); }
+        .payment-method p { font-size:.85rem; color:var(--text-muted); }
+
+        .upi-card { background:#fff; border-radius:20px; padding:40px; box-shadow:var(--shadow-lg); border:1px solid rgba(45,122,58,.1); text-align:center; }
+        .upi-card h3 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--dark-green); margin-bottom:25px; }
+        .qr-container { background:#fff; border:3px solid var(--primary-green); border-radius:16px; padding:20px; display:inline-block; margin-bottom:20px; }
+        .qr-container img { width:200px; height:200px; }
+        .upi-details { text-align:left; margin-top:20px; }
+        .upi-detail { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #f0f0f0; font-size:.95rem; }
+        .upi-detail:last-child { border-bottom:none; }
+        .upi-detail .label { color:var(--text-muted); font-weight:500; }
+        .upi-detail .value { font-weight:600; color:var(--text-dark); }
+        .upi-detail .value.copyable { cursor:pointer; color:var(--primary-green); }
+        .upi-detail .value.copyable:hover { text-decoration:underline; }
+        .upi-pay-buttons { display:flex; flex-direction:column; gap:12px; margin-top:25px; }
+        .btn-upi { background:linear-gradient(135deg,#5f259f,#3a1560); color:#fff; box-shadow:0 4px 15px rgba(95,37,159,.3); }
+        .btn-upi:hover { transform:translateY(-2px); box-shadow:0 6px 25px rgba(95,37,159,.4); }
+        .btn-gpay { background:linear-gradient(135deg,#4285f4,#1a73e8); color:#fff; }
+        .btn-gpay:hover { transform:translateY(-2px); }
+        .btn-phonepe { background:linear-gradient(135deg,#5f259f,#3a1560); color:#fff; }
+        .payment-note { margin-top:20px; padding:15px 20px; background:linear-gradient(135deg,rgba(45,122,58,.05),rgba(76,175,80,.08)); border-radius:12px; border-left:4px solid var(--primary-green); text-align:left; }
+        .payment-note p { font-size:.85rem; color:var(--text-muted); line-height:1.6; }
+        .payment-note i { color:var(--primary-green); margin-right:8px; }
+        .copied-toast { position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--dark-green); color:#fff; padding:12px 30px; border-radius:50px; font-size:.9rem; z-index:9999; transition:transform .3s; }
+        .copied-toast.show { transform:translateX(-50%) translateY(0); }
+
+        /* UPI AMOUNT MODAL */
+        .modal-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.5); z-index:9998; align-items:center; justify-content:center; }
+        .modal-overlay.show { display:flex; }
+        .modal { background:#fff; border-radius:20px; padding:40px; max-width:420px; width:90%; text-align:center; box-shadow:var(--shadow-lg); }
+        .modal h3 { font-family:'Playfair Display',serif; color:var(--dark-green); margin-bottom:8px; font-size:1.4rem; }
+        .modal p { color:var(--text-muted); font-size:.9rem; margin-bottom:25px; }
+        .modal input { width:100%; padding:16px; border:2px solid #e8e8e8; border-radius:12px; font-family:'Poppins',sans-serif; font-size:1.2rem; text-align:center; transition:all .3s; margin-bottom:20px; }
+        .modal input:focus { border-color:var(--primary-green); outline:none; box-shadow:0 0 0 4px rgba(45,122,58,.1); }
+        .modal-buttons { display:flex; gap:10px; }
+        .modal-buttons .btn { flex:1; justify-content:center; }
+        .btn-cancel { background:#f0f0f0; color:var(--text-dark); }
+
+        /* ENQUIRY */
+        .enquiry-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start; }
+        .contact-cards { display:grid; gap:20px; }
+        .contact-card { background:#fff; border-radius:16px; padding:25px; display:flex; align-items:center; gap:18px; box-shadow:var(--shadow); transition:all .3s; text-decoration:none; color:inherit; }
+        .contact-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+        .contact-icon { width:55px; height:55px; background:linear-gradient(135deg,var(--primary-green),var(--dark-green)); border-radius:14px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.3rem; flex-shrink:0; }
+        .contact-card h4 { font-size:.8rem; color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+        .contact-card p { font-size:1rem; font-weight:600; color:var(--dark-green); }
+        .enquiry-form { background:#fff; border-radius:20px; padding:40px; box-shadow:var(--shadow-lg); }
+        .enquiry-form h3 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--dark-green); margin-bottom:25px; }
+        .form-group { margin-bottom:20px; }
+        .form-group label { display:block; font-size:.85rem; font-weight:500; color:var(--text-muted); margin-bottom:8px; }
+        .form-group input,.form-group select,.form-group textarea { width:100%; padding:14px 18px; border:2px solid #e8e8e8; border-radius:12px; font-family:'Poppins',sans-serif; font-size:.95rem; transition:all .3s; background:#fafafa; }
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--primary-green); outline:none; background:#fff; box-shadow:0 0 0 4px rgba(45,122,58,.1); }
+        .form-group textarea { resize:vertical; min-height:100px; }
+        .form-row { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+
+        /* CTA */
+        .cta-banner { background:linear-gradient(135deg,var(--primary-green) 0%,var(--dark-green) 50%,var(--brown) 100%); padding:60px 0; text-align:center; color:#fff; position:relative; overflow:hidden; }
+        .cta-banner h2 { font-family:'Playfair Display',serif; font-size:2.2rem; margin-bottom:15px; }
+        .cta-banner p { font-size:1.1rem; opacity:.9; margin-bottom:30px; }
+        .cta-buttons { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
+
+        /* FOOTER */
+        .footer { background:linear-gradient(135deg,#1a2e1a,#2c4a2c,#1a3a20); color:#fff; padding:60px 0 0; }
+        .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:40px; padding-bottom:40px; }
+        .footer-brand img { height:60px; margin-bottom:15px; filter:brightness(1.2); }
+        .footer-brand p { color:rgba(255,255,255,.7); font-size:.9rem; line-height:1.7; margin-bottom:20px; }
+        .footer-social { display:flex; gap:12px; }
+        .footer-social a { width:40px; height:40px; background:rgba(255,255,255,.1); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none; transition:all .3s; }
+        .footer-social a:hover { background:var(--primary-green); transform:translateY(-3px); }
+        .footer h4 { font-size:1.05rem; margin-bottom:20px; position:relative; padding-bottom:10px; }
+        .footer h4::after { content:''; position:absolute; bottom:0; left:0; width:30px; height:3px; background:var(--primary-green); border-radius:2px; }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:10px; }
+        .footer-links a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.9rem; transition:all .3s; }
+        .footer-links a:hover { color:#fff; padding-left:5px; }
+        .footer-contact p { color:rgba(255,255,255,.7); font-size:.9rem; margin-bottom:12px; display:flex; align-items:flex-start; gap:10px; }
+        .footer-contact i { color:var(--accent-green); margin-top:4px; }
+        .footer-bottom { border-top:1px solid rgba(255,255,255,.1); padding:20px 0; text-align:center; }
+        .footer-bottom p { color:rgba(255,255,255,.5); font-size:.85rem; }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float { position:fixed; bottom:30px; right:30px; width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.8rem; box-shadow:0 4px 20px rgba(37,211,102,.4); z-index:999; text-decoration:none; transition:all .3s; animation:pulse 2s infinite; }
+        .whatsapp-float:hover { transform:scale(1.1); }
+        @keyframes pulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 30px rgba(37,211,102,.6)} }
+        .scroll-top { position:fixed; bottom:30px; right:100px; width:45px; height:45px; background:var(--primary-green); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem; cursor:pointer; opacity:0; visibility:hidden; transition:all .3s; z-index:999; border:none; }
+        .scroll-top.visible { opacity:1; visibility:visible; }
+        .scroll-top:hover { transform:translateY(-3px); background:var(--dark-green); }
+
+        /* SUCCESS */
+        .success-message { display:none; background:linear-gradient(135deg,rgba(45,122,58,.1),rgba(76,175,80,.15)); border:2px solid var(--primary-green); border-radius:16px; padding:30px; text-align:center; }
+        .success-message.show { display:block; }
+        .success-message i { font-size:3rem; color:var(--primary-green); margin-bottom:15px; }
+        .success-message h3 { color:var(--dark-green); margin-bottom:10px; }
+
+        /* RESPONSIVE */
+        @media(max-width:992px) {
+            .hero .container { grid-template-columns:1fr; text-align:center; }
+            .hero-content h2 { font-size:2.5rem; }
+            .hero-badges,.hero-buttons { justify-content:center; }
+            .hero-image { order:-1; }
+            .hero-image img { max-width:400px; }
+            .features-grid { grid-template-columns:repeat(2,1fr); }
+            .payment-grid,.enquiry-grid { grid-template-columns:1fr; }
+            .footer-grid { grid-template-columns:1fr 1fr; }
+            .stats-grid { grid-template-columns:repeat(2,1fr); }
+        }
+        @media(max-width:768px) {
+            .top-bar { display:none; }
+            .mobile-toggle { display:block; }
+            .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; padding:20px; box-shadow:var(--shadow-lg); border-radius:0 0 16px 16px; }
+            .nav-links.active { display:flex; }
+            .hero-content h2 { font-size:2rem; }
+            .features-grid { grid-template-columns:1fr; }
+            #products-grid { grid-template-columns:1fr; }
+            .section-title h2 { font-size:2rem; }
+            .footer-grid { grid-template-columns:1fr; }
+            .stat-item h3 { font-size:2rem; }
+            .form-row { grid-template-columns:1fr; }
+            .section { padding:50px 0; }
+            .modal { padding:25px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== TOP BAR ==================== -->
+<div class="top-bar">
+    <div class="container">
+        <div class="top-bar-left">
+            <a href="tel:+917806960400"><i class="fas fa-phone"></i> +91 7806960400</a>
+            <a href="mailto:vjmcocopeat@gmail.com"><i class="fas fa-envelope"></i> vjmcocopeat@gmail.com</a>
+        </div>
+        <div class="top-bar-right">
+            <span><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</span>
+            <span><i class="fas fa-truck"></i> Delivery Available</span>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="#home" class="navbar-brand">
+            <img src="logo.jpg" alt="VJM Cocopeat">
+            <div class="brand-text">
+                <h1>VJM Cocopeat</h1>
+                <span>Natural • Sustainable • Trusted</span>
+            </div>
+        </a>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#payment">Payment</a></li>
+            <li><a href="#enquiry">Enquiry</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h2>Premium Quality <span>Cocopeat</span> for Healthy Plants</h2>
+            <p>Transform your garden with VJM Cocopeat — 100% natural coir pith growing medium. Perfect for home gardening, seed starting, potting mix & promoting healthy plant growth.</p>
+            <div class="hero-badges">
+                <div class="hero-badge"><i class="fas fa-leaf"></i> 100% Natural</div>
+                <div class="hero-badge"><i class="fas fa-recycle"></i> Eco Friendly</div>
+                <div class="hero-badge"><i class="fas fa-tint"></i> Water Retention</div>
+                <div class="hero-badge"><i class="fas fa-seedling"></i> All Plants</div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary"><i class="fas fa-box-open"></i> View Products</a>
+                <a href="https://wa.me/917806960400?text=Hi%20VJM%20Cocopeat!%20I'm%20interested%20in%20your%20products." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="products.jpg" alt="VJM Cocopeat Blocks">
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item"><h3>500+</h3><p>Happy Customers</p></div>
+            <div class="stat-item"><h3>100%</h3><p>Natural Product</p></div>
+            <div class="stat-item"><h3>4-5 KG</h3><p>Compressed Blocks</p></div>
+            <div class="stat-item"><h3>60-75L</h3><p>Expands Up To</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== FEATURES ==================== -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Choose VJM Cocopeat?</h2>
+            <p>Discover the natural benefits of premium quality cocopeat</p>
+            <div class="divider"></div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-tint"></i></div>
+                <h3>Excellent Water Retention</h3>
+                <p>Retains water up to 8-9 times its weight, keeping roots moist and healthy.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-wind"></i></div>
+                <h3>Superior Aeration</h3>
+                <p>Provides excellent air porosity for stronger root development.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-recycle"></i></div>
+                <h3>Eco-Friendly & Sustainable</h3>
+                <p>Made from natural coconut husk fibre. 100% biodegradable.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>Optimal pH Balance</h3>
+                <p>Naturally balanced pH (5.5-6.5) ideal for most plants.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PRODUCTS (DYNAMIC) ==================== -->
+<section class="section section-alt" id="products">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Products</h2>
+            <p>Premium quality compressed cocopeat blocks, sourced and processed with care</p>
+            <div class="divider"></div>
+        </div>
+        <div id="products-grid">
+            <!-- Products are rendered dynamically by JavaScript below -->
+        </div>
+        <div style="text-align:center;margin-top:40px;padding:20px;background:linear-gradient(135deg,rgba(45,122,58,.05),rgba(76,175,80,.08));border-radius:16px;">
+            <p style="color:var(--text-muted);font-size:.95rem;">
+                <i class="fas fa-box-open" style="color:var(--primary-green);margin-right:8px;"></i>
+                <strong>More products coming soon!</strong> We regularly update our product range.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PAYMENT / UPI ==================== -->
+<section class="section" id="payment">
+    <div class="container">
+        <div class="section-title">
+            <h2>Payment Options</h2>
+            <p>Simple & secure UPI payments — pay instantly with any UPI app</p>
+            <div class="divider"></div>
+        </div>
+        <div class="payment-grid">
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <div class="payment-method-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div><h3>Google Pay / PhonePe / UPI</h3><p>Pay instantly using any UPI app to our registered UPI ID.</p></div>
+                </div>
+                <div class="payment-method">
+                    <div class="payment-method-icon"><i class="fas fa-qrcode"></i></div>
+                    <div><h3>Scan QR Code</h3><p>Scan the QR code with any UPI app for quick payment.</p></div>
+                </div>
+                <div class="payment-method">
+                    <div class="payment-method-icon"><i class="fas fa-university"></i></div>
+                    <div><h3>Bank Transfer (NEFT / IMPS)</h3><p>Direct bank transfer for bulk and wholesale orders.</p></div>
+                </div>
+                <div class="payment-method">
+                    <div class="payment-method-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <div><h3>Cash on Delivery</h3><p>Pay in cash at the time of delivery (Chennai area only).</p></div>
+                </div>
+            </div>
+
+            <div class="upi-card">
+                <h3><i class="fas fa-shield-alt" style="color:var(--primary-green);margin-right:10px;"></i>Pay via UPI</h3>
+
+                <!-- QR Code -->
+                <div class="qr-container">
+                    <img id="upiQR" alt="UPI QR Code" src="">
+                </div>
+                <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:15px;">Scan with any UPI app to pay</p>
+
+                <!-- UPI Details -->
+                <div class="upi-details">
+                    <div class="upi-detail">
+                        <span class="label">UPI ID</span>
+                        <span class="value copyable" onclick="copyText('vimalvjoff-8@okicici')">vimalvjoff-8@okicici <i class="fas fa-copy" style="font-size:.75rem;margin-left:5px;"></i></span>
+                    </div>
+                    <div class="upi-detail">
+                        <span class="label">UPI Number</span>
+                        <span class="value copyable" onclick="copyText('7305303435')">7305303435 <i class="fas fa-copy" style="font-size:.75rem;margin-left:5px;"></i></span>
+                    </div>
+                    <div class="upi-detail">
+                        <span class="label">Payee Name</span>
+                        <span class="value">VJM Cocopeat</span>
+                    </div>
+                </div>
+
+                <!-- Pay Now Buttons -->
+                <div class="upi-pay-buttons">
+                    <a href="javascript:void(0)" onclick="openPayModal()" class="btn btn-primary" style="justify-content:center;">
+                        <i class="fas fa-rupee-sign"></i> Pay Now via UPI
+                    </a>
+                    <a href="https://wa.me/917806960400?text=Hi!%20I've%20made%20a%20payment.%20Here's%20my%20screenshot." class="btn btn-whatsapp" style="justify-content:center;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Send Payment Screenshot
+                    </a>
+                </div>
+
+                <div class="payment-note" style="margin-top:20px;">
+                    <p><i class="fas fa-info-circle"></i> After payment, please share the screenshot on WhatsApp at <strong>7806960400</strong> with your order details for confirmation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UPI AMOUNT MODAL -->
+<div class="modal-overlay" id="payModal">
+    <div class="modal">
+        <h3>💰 Enter Payment Amount</h3>
+        <p>Enter the amount to pay via UPI</p>
+        <input type="number" id="payAmount" placeholder="₹ Enter amount" min="1">
+        <div class="modal-buttons">
+            <button class="btn btn-cancel btn-sm" onclick="closePayModal()">Cancel</button>
+            <a id="upiPayLink" href="#" class="btn btn-primary btn-sm" style="justify-content:center;"><i class="fas fa-rupee-sign"></i> Pay Now</a>
+        </div>
+        <p style="margin-top:15px;font-size:.75rem;color:var(--text-muted);">This will open your UPI app (GPay / PhonePe / Paytm)</p>
+    </div>
+</div>
+
+<!-- ==================== CTA ==================== -->
+<section class="cta-banner">
+    <div class="container">
+        <h2>Ready to Grow Your Garden? 🌱</h2>
+        <p>Order premium VJM Cocopeat today and give your plants the best growing medium!</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/917806960400?text=Hi!%20I'd%20like%20to%20place%20an%20order." class="btn btn-white" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            <a href="tel:+917806960400" class="btn btn-outline" style="border-color:#fff;color:#fff;"><i class="fas fa-phone"></i> Call: 7806960400</a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ENQUIRY ==================== -->
+<section class="section" id="enquiry">
+    <div class="container">
+        <div class="section-title">
+            <h2>Get in Touch</h2>
+            <p>Have questions or want to place an order? We'd love to hear from you!</p>
+            <div class="divider"></div>
+        </div>
+        <div class="enquiry-grid">
+            <div class="contact-cards">
+                <a href="tel:+917806960400" class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div><h4>Call Us</h4><p>+91 7806960400</p></div>
+                </a>
+                <a href="https://wa.me/917806960400" class="contact-card" target="_blank">
+                    <div class="contact-icon" style="background:#25D366;"><i class="fab fa-whatsapp"></i></div>
+                    <div><h4>WhatsApp</h4><p>+91 7806960400</p></div>
+                </a>
+                <a href="mailto:vjmcocopeat@gmail.com" class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div><h4>Email Us</h4><p>vjmcocopeat@gmail.com</p></div>
+                </a>
+                <a href="https://vjmcocopeat.in" class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <div><h4>Website</h4><p>vjmcocopeat.in</p></div>
+                </a>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div><h4>Location</h4><p>Chennai, Tamil Nadu, India</p></div>
+                </div>
+            </div>
+            <div>
+                <div class="enquiry-form" id="enquiryFormBox">
+                    <h3><i class="fas fa-paper-plane" style="color:var(--primary-green);margin-right:10px;"></i>Send Enquiry</h3>
+                    <form id="enquiryForm" onsubmit="submitEnquiry(event)">
+                        <div class="form-row">
+                            <div class="form-group"><label>Full Name *</label><input type="text" id="fname" required placeholder="Your name"></div>
+                            <div class="form-group"><label>Phone Number *</label><input type="tel" id="fphone" required placeholder="+91 XXXXX XXXXX"></div>
+                        </div>
+                        <div class="form-group"><label>Email Address</label><input type="email" id="femail" placeholder="your@email.com"></div>
+                        <div class="form-group">
+                            <label>Product Interest *</label>
+                            <select id="fproduct" required>
+                                <option value="" disabled selected>Select a product</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Quantity</label><input type="text" id="fqty" placeholder="e.g., 5 blocks"></div>
+                            <div class="form-group"><label>City / Location</label><input type="text" id="fcity" placeholder="e.g., Chennai"></div>
+                        </div>
+                        <div class="form-group"><label>Message</label><textarea id="fmsg" placeholder="Tell us about your requirements..."></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Send Enquiry via WhatsApp</button>
+                    </form>
+                </div>
+                <div class="success-message" id="successMsg">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Enquiry Sent!</h3>
+                    <p>Thank you! We'll get back to you within 24 hours.</p><br>
+                    <a href="https://wa.me/917806960400" class="btn btn-whatsapp btn-sm" target="_blank"><i class="fab fa-whatsapp"></i> Chat for Faster Response</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="logo.jpg" alt="VJM Cocopeat">
+                <p>Premium quality cocopeat products. 100% natural, eco-friendly for all gardening and agricultural needs.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/917806960400" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:vjmcocopeat@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+917806960400"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#payment">Payment</a></li>
+                    <li><a href="#enquiry">Enquiry</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul class="footer-links" id="footer-products"></ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +91 7806960400</p>
+                <p><i class="fas fa-envelope"></i> vjmcocopeat@gmail.com</p>
+                <p><i class="fas fa-globe"></i> vjmcocopeat.in</p>
+                <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VJM Cocopeat. All Rights Reserved. | Natural • Sustainable • Trusted</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/917806960400?text=Hi%20VJM%20Cocopeat!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<!-- COPIED TOAST -->
+<div class="copied-toast" id="copiedToast">✅ Copied to clipboard!</div>
+
+<script>
+/* ================================================================
+   🔧🔧🔧  EASY CONFIG — EDIT YOUR PRODUCTS HERE  🔧🔧🔧
+   
+   To ADD a new product: Copy one block and paste below it.
+   To REMOVE a product: Delete that block.
+   To CHANGE image: Replace the "image" filename.
+   Upload new images to Replit alongside index.html.
+   
+   ================================================================ */
+
+const PRODUCTS = [
+    {
+        name: "Compressed Cocopeat Block (4-5 KG)",
+        image: "products.jpg",
+        badge: "Best Seller",
+        description: "Premium 4-5 KG compressed cocopeat block that expands to approximately 60-75 litres. Perfect for all gardening needs.",
+        specs: ["4-5 KG Block", "Expands 60-75L", "100% Natural", "Low EC"],
+        price: "₹199",
+        priceNote: "per block",
+        whatsappMsg: "Hi! I'm interested in the 4-5KG Cocopeat Block."
+    },
+    {
+        name: "Cocopeat Block — Bulk Order (10+)",
+        image: "banner.png",
+        badge: "Bulk Deal",
+        description: "Order in bulk for nurseries, farms, and landscaping projects. Get special pricing on volume orders with delivery.",
+        specs: ["Bulk Pricing", "Farm Grade", "Chennai Delivery", "10+ Blocks"],
+        price: "₹180",
+        priceNote: "per block (10+)",
+        whatsappMsg: "Hi! I'm interested in bulk orders of Cocopeat Blocks. Please share details."
+    },
+    {
+        name: "Custom & Wholesale Orders",
+        image: "logo.jpg",
+        badge: "Custom",
+        description: "Need specific quantity or packaging? We offer custom orders tailored to your requirements with competitive pricing.",
+        specs: ["Custom Packing", "Wholesale", "All India Shipping", "Best Price"],
+        price: "Enquire Us",
+        priceNote: "for quote",
+        whatsappMsg: "Hi! I'm interested in wholesale/custom orders. Please share details."
+    }
+
+    /* ————————————————————————————————————————
+       ✏️ TO ADD A NEW PRODUCT, paste this below:
+       
+    ,{
+        name: "Your New Product Name",
+        image: "your-image.jpg",
+        badge: "New",
+        description: "Describe your product here.",
+        specs: ["Spec 1", "Spec 2", "Spec 3"],
+        price: "₹XXX",
+        priceNote: "per unit",
+        whatsappMsg: "Hi! I'm interested in Your New Product."
+    }
+    
+       ———————————————————————————————————————— */
+];
+
+/* ================================================================
+   🔧  UPI CONFIG — Your payment details
+   ================================================================ */
+const UPI_ID = "vimalvjoff-8@okicici";
+const UPI_NUMBER = "7305303435";
+const UPI_NAME = "VJM Cocopeat";
+const PHONE = "917806960400";
+
+
+/* ================================================================
+   ⚙️  DYNAMIC RENDERING — Don't edit below unless you know JS
+   ================================================================ */
+
+// Render Products
+function renderProducts() {
+    const grid = document.getElementById('products-grid');
+    const select = document.getElementById('fproduct');
+    const footerList = document.getElementById('footer-products');
+    
+    grid.innerHTML = PRODUCTS.map((p, i) => `
+        <div class="product-card">
+            <div class="product-image">
+                <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/400x250/f0f9f0/2d7a3a?text=VJM+Cocopeat'">
+                <span class="product-badge">${p.badge}</span>
+            </div>
+            <div class="product-info">
+                <h3>${p.name}</h3>
+                <p>${p.description}</p>
+                <div class="product-specs">
+                    ${p.specs.map(s => `<span class="product-spec">${s}</span>`).join('')}
+                </div>
+                <div class="product-price-row">
+                    <div class="price">${p.price} <small>${p.priceNote}</small></div>
+                    <a href="https://wa.me/${PHONE}?text=${encodeURIComponent(p.whatsappMsg)}" class="btn btn-primary btn-sm" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Enquire
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    // Populate enquiry dropdown
+    PRODUCTS.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.name;
+        opt.textContent = p.name;
+        select.appendChild(opt);
+    });
+    const otherOpt = document.createElement('option');
+    otherOpt.value = "Other / General Enquiry";
+    otherOpt.textContent = "Other / General Enquiry";
+    select.appendChild(otherOpt);
+
+    // Footer products
+    footerList.innerHTML = PRODUCTS.map(p => `<li><a href="#products">${p.name}</a></li>`).join('');
+}
+
+// Generate UPI QR Code
+function generateQR() {
+    const upiString = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&cu=INR`;
+    const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}&bgcolor=ffffff&color=1a5c28`;
+    document.getElementById('upiQR').src = qrURL;
+}
+
+// UPI Pay Modal
+function openPayModal() {
+    document.getElementById('payModal').classList.add('show');
+    document.getElementById('payAmount').focus();
+}
+function closePayModal() {
+    document.getElementById('payModal').classList.remove('show');
+}
+
+// Update UPI pay link when amount changes
+document.addEventListener('DOMContentLoaded', () => {
+    const amountInput = document.getElementById('payAmount');
+    const payLink = document.getElementById('upiPayLink');
+    
+    amountInput.addEventListener('input', () => {
+        const amt = amountInput.value;
+        if (amt && amt > 0) {
+            const upiURL = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${amt}&cu=INR&tn=VJM+Cocopeat+Order`;
+            payLink.href = upiURL;
+            payLink.innerHTML = `<i class="fas fa-rupee-sign"></i> Pay ₹${amt}`;
+        } else {
+            payLink.href = '#';
+            payLink.innerHTML = `<i class="fas fa-rupee-sign"></i> Pay Now`;
+        }
+    });
+
+    payLink.addEventListener('click', (e) => {
+        const amt = amountInput.value;
+        if (!amt || amt <= 0) {
+            e.preventDefault();
+            amountInput.style.borderColor = '#e74c3c';
+            amountInput.focus();
+            setTimeout(() => amountInput.style.borderColor = '#e8e8e8', 2000);
+        } else {
+            closePayModal();
+        }
+    });
+});
+
+// Copy to clipboard
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copiedToast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+}
+
+// Enquiry form → WhatsApp
+function submitEnquiry(e) {
+    e.preventDefault();
+    let msg = "🌱 *New Enquiry — VJM Cocopeat*\n\n";
+    msg += "👤 *Name:* " + document.getElementById('fname').value + "\n";
+    msg += "📞 *Phone:* " + document.getElementById('fphone').value + "\n";
+    if (document.getElementById('femail').value) msg += "📧 *Email:* " + document.getElementById('femail').value + "\n";
+    msg += "📦 *Product:* " + document.getElementById('fproduct').value + "\n";
+    if (document.getElementById('fqty').value) msg += "🔢 *Qty:* " + document.getElementById('fqty').value + "\n";
+    if (document.getElementById('fcity').value) msg += "📍 *Location:* " + document.getElementById('fcity').value + "\n";
+    if (document.getElementById('fmsg').value) msg += "💬 *Message:* " + document.getElementById('fmsg').value + "\n";
+
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+    
+    document.getElementById('enquiryFormBox').style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+    setTimeout(() => {
+        document.getElementById('enquiryForm').reset();
+        document.getElementById('enquiryFormBox').style.display = 'block';
+        document.getElementById('successMsg').classList.remove('show');
+    }, 5000);
+}
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+    
+    // Active nav
+    document.querySelectorAll('section[id]').forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 100) {
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + sec.id);
+            });
+        }
+    });
+});
+
+// Close modal on overlay click
+document.getElementById('payModal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('payModal')) closePayModal();
+});
+
+// INIT
+renderProducts();
+generateQR();
+</script>
+</body>
+</html>
